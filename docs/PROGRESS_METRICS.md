@@ -10,7 +10,7 @@
 |------|-----------|--------|-----------|
 | 1 | Estrutura + Models + Infra | ✅ Completa | 100% |
 | 2 | Core + Trading + LotCalculator | ✅ Completa | 100% |
-| 3 | Engine Principal (Loop) | 🏗️ Em andamento | 50% |
+| 3 | Engine Principal (Loop) | 🏗️ Em andamento | 75% |
 | 4 | ML (Model Loader, Features) | ⏳ Pendente | 0% |
 | 5 | Testes e Validação | ⏳ Pendente | 0% |
 
@@ -36,7 +36,7 @@
 | Engine (Loop) | `oracle_trader.py` | `core/engine.py` | ✅ |
 | Model Loader | `oracle_trader.py` | `ml/model_loader.py` | ⏳ Fase 4 |
 | Feature Calculator | `features.py` | `ml/features.py` | ⏳ Fase 4 |
-| WebSocket Server | `websocket_server.py` | (manter/adaptar) | ⏳ Fase 3 |
+| WebSocket Server | `websocket_server.py` | `infra/websocket_server.py` | ✅ |
 | Supabase Logger | `supabase_logger.py` | (manter/adaptar) | ⏳ Fase 3 |
 
 **Componentes Refatorados: 9/14 (64%)**
@@ -106,21 +106,22 @@ trading/
 └── risk_manager.py      264 linhas
 
 infra/
-├── __init__.py           29 linhas
+├── __init__.py           38 linhas
 ├── broker_base.py       343 linhas
-└── mt5_client.py        526 linhas
+├── mt5_client.py        526 linhas
+└── websocket_server.py  546 linhas
 
 ml/
 └── __init__.py           12 linhas
 
 root/
-└── main.py              323 linhas
+└── main.py              348 linhas
 ─────────────────────────────────────
-TOTAL                   4960 linhas
+TOTAL                   5540 linhas
 ```
 
-**Arquivos: 12 → 20 (+66%)**
-**Linhas: 5543 → 4960 (-10%)** *(ainda sem ML)*
+**Arquivos: 20 → 21 (+5%)**
+**Linhas: 4960 → 5540 (+12%)**
 
 ---
 
@@ -244,7 +245,7 @@ TOTAL                   4960 linhas
 ```
 Fase 1 [####################] 100%  ✅
 Fase 2 [####################] 100%  ✅
-Fase 3 [##########          ]  50%  🏗️
+Fase 3 [###############     ]  75%  🏗️
 Fase 4 [                    ]   0%  ⏳
 Fase 5 [                    ]   0%  ⏳
 ───────────────────────────────────────

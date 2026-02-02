@@ -23,7 +23,7 @@ sys.path.insert(0, str(ROOT_DIR))
 
 from core.engine import OracleEngine, setup_signal_handlers, VERSION
 from core.config import ConfigManager
-from infra import MT5Client
+from infra import MT5Client, WebSocketServer
 
 
 def setup_logging(level: str = "INFO") -> None:
@@ -299,6 +299,15 @@ async def main() -> int:
         predictor=None,  # TODO: Implementar quando ml/ estiver pronto
     )
     
+    # Cria WebSocket server (se habilitado)
+    ws_server = None
+    if config.websocket.enabled:
+        ws_server = WebSocketServer(
+            host=config.websocket.host,
+            port=config.websocket.port,
+        )
+        ws_server.set_engine(engine)
+    
     # Modo Paper-Only: força todos os símbolos para Paper Trade
     if args.paper_only:
         logger.info("Modo PAPER-ONLY ativado - sem trades reais")
@@ -309,14 +318,23 @@ async def main() -> int:
     setup_signal_handlers(engine, loop)
     
     try:
-        # Inicializa
+        # Inicializa Engine
         if not await engine.initialize():
             logger.error("Falha na inicialização")
             return 1
         
+        # Inicia WebSocket
+        if ws_server:
+            if await ws_server.start():
+                logger.info(f"WebSocket: ws://{config.websocket.host}:{config.websocket.port}")
+            else:
+                logger.warning("WebSocket não iniciado (continuando sem)")
+        
         # Dry run: sai após inicialização
         if args.dry_run:
             logger.info("Dry run: inicialização OK, saindo...")
+            if ws_server:
+                await ws_server.stop()
             await engine.shutdown("DRY_RUN")
             return 0
         
@@ -325,12 +343,19 @@ async def main() -> int:
         
     except KeyboardInterrupt:
         logger.info("Interrompido pelo usuário")
-        await engine.shutdown("USER_INTERRUPT")
     
     except Exception as e:
         logger.exception(f"Erro fatal: {e}")
+        if ws_server:
+            await ws_server.stop()
         await engine.shutdown("ERROR")
         return 1
+    
+    finally:
+        # Cleanup
+        if ws_server:
+            await ws_server.stop()
+        await engine.shutdown("NORMAL")
     
     return 0
 
