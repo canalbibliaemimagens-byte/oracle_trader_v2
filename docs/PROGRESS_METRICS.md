@@ -10,11 +10,11 @@
 |------|-----------|--------|-----------|
 | 1 | Estrutura + Models + Infra | ✅ Completa | 100% |
 | 2 | Core + Trading + LotCalculator | ✅ Completa | 100% |
-| 3 | Engine Principal (Loop) | ⏳ Pendente | 0% |
+| 3 | Engine Principal (Loop) | 🏗️ Em andamento | 50% |
 | 4 | ML (Model Loader, Features) | ⏳ Pendente | 0% |
 | 5 | Testes e Validação | ⏳ Pendente | 0% |
 
-**Progresso Total: 40%** (2 de 5 fases)
+**Progresso Total: 50%** (2.5 de 5 fases)
 
 ---
 
@@ -33,7 +33,7 @@
 | Lot Calculator | ❌ Não existia | `trading/lot_calculator.py` | ✅ Novo |
 | Broker Interface | `trading.py` (MT5 direto) | `infra/broker_base.py` | ✅ |
 | MT5 Client | `trading.py` | `infra/mt5_client.py` | ✅ |
-| Engine (Loop) | `oracle_trader.py` | `core/engine.py` | ⏳ Fase 3 |
+| Engine (Loop) | `oracle_trader.py` | `core/engine.py` | ✅ |
 | Model Loader | `oracle_trader.py` | `ml/model_loader.py` | ⏳ Fase 4 |
 | Feature Calculator | `features.py` | `ml/features.py` | ⏳ Fase 4 |
 | WebSocket Server | `websocket_server.py` | (manter/adaptar) | ⏳ Fase 3 |
@@ -85,8 +85,9 @@ TOTAL                   5543 linhas
 
 ```
 core/
-├── __init__.py           17 linhas
+├── __init__.py           40 linhas
 ├── config.py            311 linhas
+├── engine.py            790 linhas
 └── state_machine.py     343 linhas
 
 models/
@@ -111,12 +112,15 @@ infra/
 
 ml/
 └── __init__.py           12 linhas
+
+root/
+└── main.py              323 linhas
 ─────────────────────────────────────
-TOTAL                   3824 linhas
+TOTAL                   4960 linhas
 ```
 
-**Arquivos: 12 → 18 (+50%)**  
-**Linhas: 5543 → 3824 (-31%)** *(ainda sem Engine e ML)*
+**Arquivos: 12 → 20 (+66%)**
+**Linhas: 5543 → 4960 (-10%)** *(ainda sem ML)*
 
 ---
 
@@ -240,11 +244,11 @@ TOTAL                   3824 linhas
 ```
 Fase 1 [####################] 100%  ✅
 Fase 2 [####################] 100%  ✅
-Fase 3 [                    ]   0%  ⏳
+Fase 3 [##########          ]  50%  🏗️
 Fase 4 [                    ]   0%  ⏳
 Fase 5 [                    ]   0%  ⏳
 ───────────────────────────────────────
-Total  [########            ]  40%
+Total  [##########          ]  50%
 ```
 
 ---

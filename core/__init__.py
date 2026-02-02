@@ -1,17 +1,40 @@
 """
 Oracle Trader v2 - Core
 
-Engine principal e máquina de estados.
+Módulos centrais de controle e configuração.
 """
 
-from .state_machine import StateMachine, PaperTradeConfig
-from .config import ConfigManager, RuntimeConfig, BrokerConfig, WebSocketConfig
+from .config import (
+    ConfigManager,
+    RuntimeConfig,
+    BrokerConfig,
+    WebSocketConfig,
+)
+
+from .state_machine import (
+    StateMachine,
+    PaperTradeConfig,
+)
+
+from .engine import (
+    OracleEngine,
+    setup_signal_handlers,
+    VERSION,
+)
 
 __all__ = [
-    'StateMachine',
-    'PaperTradeConfig',
+    # Config
     'ConfigManager',
     'RuntimeConfig',
     'BrokerConfig',
     'WebSocketConfig',
+    
+    # State Machine
+    'StateMachine',
+    'PaperTradeConfig',
+    
+    # Engine
+    'OracleEngine',
+    'setup_signal_handlers',
+    'VERSION',
 ]
