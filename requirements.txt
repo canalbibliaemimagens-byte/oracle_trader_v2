@@ -1,0 +1,30 @@
+# Oracle Trader v2 - Dependências
+# Python 3.10+
+
+# === Core ===
+numpy>=1.24.0
+pandas>=2.0.0
+
+# === Machine Learning ===
+stable-baselines3>=2.1.0
+hmmlearn>=0.3.0
+torch>=2.0.0
+
+# === Broker: MetaTrader 5 ===
+# NOTA: Somente Windows
+MetaTrader5>=5.0.45
+
+# === WebSocket ===
+websockets>=11.0
+
+# === Persistência ===
+supabase>=2.0.0
+
+# === Utilitários ===
+python-dotenv>=1.0.0
+
+# === Desenvolvimento (opcional) ===
+# pytest>=7.0.0
+# pytest-asyncio>=0.21.0
+# black>=23.0.0
+# ruff>=0.1.0

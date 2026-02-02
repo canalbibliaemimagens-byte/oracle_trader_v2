@@ -1,0 +1,60 @@
+{
+  "_comment": "Oracle Trader v2.0 - Configuração",
+  
+  "broker": {
+    "_comment": "Tipo de broker: mt5, ccxt, ws (apenas mt5 implementado na v2.0)",
+    "type": "mt5",
+    "magic_base": 777000,
+    "comment_prefix": "OracleV2"
+  },
+  
+  "risk": {
+    "_comment": "Limites de risco em porcentagem",
+    "dd_limit_pct": 5.0,
+    "dd_emergency_pct": 10.0,
+    "dd_tp_pct": 0.0
+  },
+  
+  "stop_loss": {
+    "_comment": "Configuração de Stop Loss",
+    "use_atr": true,
+    "atr_period": 14,
+    "atr_multiplier": 4.0,
+    "min_pips": 20,
+    "max_pips": 100
+  },
+  
+  "sl_protection": {
+    "_comment": "Proteção contra múltiplos SL hits",
+    "window_minutes": 30,
+    "max_hits": 2
+  },
+  
+  "paper_trade": {
+    "_comment": "Critérios para sair do Paper Trade e voltar ao trading real",
+    "exit_wins_required": 3,
+    "exit_streak_required": 2,
+    "track_virtual_pnl": true,
+    "log_virtual_trades": true
+  },
+  
+  "lot_multiplier_global": 1.0,
+  
+  "models_dir": "./models",
+  
+  "websocket": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8765
+  },
+  
+  "supabase": {
+    "_comment": "Credenciais via variáveis de ambiente: SUPABASE_URL, SUPABASE_KEY",
+    "enabled": true
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  }
+}
