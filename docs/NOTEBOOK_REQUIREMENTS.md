@@ -51,18 +51,8 @@ O arquivo `*_exec_config.json` deve incluir:
 | `INDEX` | US500, US30, GER40, UK100 | [0, 0.1, 0.3, 0.5] | 0.1 |
 | `COMMODITY` | XTIUSD (Oil), XNGUSD (Gas) | [0, 0.01, 0.03, 0.05] | 0.01 |
 | `METAL` | XAUUSD (Gold), XAGUSD (Silver) | [0, 0.01, 0.03, 0.05] | 0.01 |
-| `CRYPTO` | BTCUSD, ETHUSD | [0, 0.001, 0.003, 0.005] | 0.01 |
+| `CRYPTO` | BTCUSD, ETHUSD | [0, 0.001, 0.003, 0.005] | 0.001 |
 | `STOCK` | AAPL, GOOGL, MSFT | [0, 1, 3, 5] | 1 |
-
----
-
-## 📋 Notas:
-
-### Lista de excessões:
-- GER40.cash: Manter lot_sizes Base = Forex.
-
-### ⚠️ Alerta de Risco:
-- Para CRYPTO avaliar com cuidado, pois o recomendado é 0.001, mas o broker aceita até 0.01.
 
 ---
 
