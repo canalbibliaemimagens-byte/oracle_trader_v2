@@ -1,0 +1,23 @@
+# Oracle Trader v2.0 - Configuração Principal
+version: "2.0"
+
+preditor:
+  models_dir: "./models"
+  warmup_bars: 1000
+  min_bars: 350
+  buffer_size: 350
+
+executor:
+  config_file: "./config/executor_symbols.json"
+  default_sl_usd: 10.0
+  default_tp_usd: 0
+  sync_mode: "lazy"
+
+paper:
+  enabled: true
+
+persistence:
+  enabled: false
+
+logging:
+  level: "INFO"

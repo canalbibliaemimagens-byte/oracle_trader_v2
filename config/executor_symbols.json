@@ -1,0 +1,20 @@
+{
+    "_comment": "Mapeamento de intensidade para lotes por símbolo",
+    "_version": "2.0",
+    "EURUSD": {
+        "enabled": true,
+        "lot_weak": 0.01,
+        "lot_moderate": 0.03,
+        "lot_strong": 0.05,
+        "sl_usd": 10.0,
+        "tp_usd": 0
+    },
+    "_default": {
+        "enabled": false,
+        "lot_weak": 0.01,
+        "lot_moderate": 0.03,
+        "lot_strong": 0.05,
+        "sl_usd": 10.0,
+        "tp_usd": 0
+    }
+}
