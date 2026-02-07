@@ -1,0 +1,3 @@
+minVolume=100000
+stepVolume=100000
+maxVolume=1000000000

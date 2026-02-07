@@ -1,0 +1,1013 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.10.17, pytest-9.0.2, pluggy-1.5.0 -- C:\Users\ceruc\miniconda3\python.exe
+cachedir: .pytest_cache
+rootdir: C:\oracle_trader_v2
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+testpaths: tests
+plugins: cov-7.0.0
+collecting ... collected 336 items
+
+tests/test_audit_regression.py::TestAuditC2_RiskInJson::test_risk_section_exists PASSED [  0%]
+tests/test_audit_regression.py::TestAuditC2_RiskInJson::test_risk_guard_loads_from_json PASSED [  0%]
+tests/test_audit_regression.py::TestAuditC3_YamlStructure::test_yaml_has_required_fields PASSED [  0%]
+tests/test_audit_regression.py::TestAuditC3_YamlStructure::test_yaml_broker_has_type PASSED [  1%]
+tests/test_audit_regression.py::TestAuditS1_DataPopFix::test_filter_keys_preserved_after_execute FAILED [  1%]
+tests/test_audit_regression.py::TestAuditS2_SpreadCheck::test_spread_blocks_when_high PASSED [  1%]
+tests/test_audit_regression.py::TestAuditS2_SpreadCheck::test_spread_passes_when_low PASSED [  2%]
+tests/test_audit_regression.py::TestAuditS2_SpreadCheck::test_spread_failopen_when_unknown PASSED [  2%]
+tests/test_audit_regression.py::TestAuditS3_MaxSpreadInJson::test_max_spread_pips_present PASSED [  2%]
+tests/test_audit_regression.py::TestAuditS5_NoDecisionOpen::test_no_open_decision PASSED [  2%]
+tests/test_audit_regression.py::TestAuditS5_NoDecisionOpen::test_only_three_decisions PASSED [  3%]
+tests/test_audit_regression.py::TestAuditM2M3_Requirements::test_requirements_has_psutil PASSED [  3%]
+tests/test_audit_regression.py::TestAuditM2M3_Requirements::test_requirements_has_supabase PASSED [  3%]
+tests/test_connector.py::TestMockConnector::test_connect_disconnect FAILED [  4%]
+tests/test_connector.py::TestMockConnector::test_get_account FAILED      [  4%]
+tests/test_connector.py::TestMockConnector::test_get_history_random FAILED [  4%]
+tests/test_connector.py::TestMockConnector::test_get_history_loaded_bars FAILED [  5%]
+tests/test_connector.py::TestMockConnector::test_open_order FAILED       [  5%]
+tests/test_connector.py::TestMockConnector::test_open_creates_position FAILED [  5%]
+tests/test_connector.py::TestMockConnector::test_close_order FAILED      [  5%]
+tests/test_connector.py::TestMockConnector::test_close_nonexistent_ticket FAILED [  6%]
+tests/test_connector.py::TestMockConnector::test_modify_order FAILED     [  6%]
+tests/test_connector.py::TestMockConnector::test_get_position_none FAILED [  6%]
+tests/test_connector.py::TestMockConnector::test_set_price_updates_pnl FAILED [  7%]
+tests/test_connector.py::TestMockConnector::test_emit_bar FAILED         [  7%]
+tests/test_connector.py::TestMockConnector::test_unsubscribe FAILED      [  7%]
+tests/test_connector.py::TestMockConnector::test_get_symbol_info FAILED  [  8%]
+tests/test_connector.py::TestMockConnector::test_order_history FAILED    [  8%]
+tests/test_connector.py::TestBarDetector::test_register_unregister FAILED [  8%]
+tests/test_connector.py::TestBarDetector::test_first_tick_no_bar FAILED  [  8%]
+tests/test_connector.py::TestBarDetector::test_same_period_no_bar FAILED [  9%]
+tests/test_connector.py::TestBarDetector::test_period_change_emits_bar FAILED [  9%]
+tests/test_connector.py::TestBarDetector::test_multiple_bars FAILED      [  9%]
+tests/test_connector.py::TestBarDetector::test_unregistered_symbol_ignored FAILED [ 10%]
+tests/test_connector.py::TestBarDetector::test_pending_bar FAILED        [ 10%]
+tests/test_connector.py::TestRateLimiter::test_basic_acquire FAILED      [ 10%]
+tests/test_connector.py::TestRateLimiter::test_multiple_acquires_under_limit FAILED [ 11%]
+tests/test_connector.py::TestRateLimiter::test_current_usage FAILED      [ 11%]
+tests/test_connector.py::TestConnectorErrors::test_hierarchy PASSED      [ 11%]
+tests/test_connector.py::TestConnectorErrors::test_order_error_code PASSED [ 11%]
+tests/test_connector_complete.py::TestMockConnector::test_connect_disconnect FAILED [ 12%]
+tests/test_connector_complete.py::TestMockConnector::test_get_history_random FAILED [ 12%]
+tests/test_connector_complete.py::TestMockConnector::test_get_history_loaded FAILED [ 12%]
+tests/test_connector_complete.py::TestMockConnector::test_get_account FAILED [ 13%]
+tests/test_connector_complete.py::TestMockConnector::test_open_order FAILED [ 13%]
+tests/test_connector_complete.py::TestMockConnector::test_open_and_get_position FAILED [ 13%]
+tests/test_connector_complete.py::TestMockConnector::test_close_order FAILED [ 13%]
+tests/test_connector_complete.py::TestMockConnector::test_close_invalid_ticket FAILED [ 14%]
+tests/test_connector_complete.py::TestMockConnector::test_get_positions_empty FAILED [ 14%]
+tests/test_connector_complete.py::TestMockConnector::test_get_positions_multiple FAILED [ 14%]
+tests/test_connector_complete.py::TestMockConnector::test_modify_order FAILED [ 15%]
+tests/test_connector_complete.py::TestMockConnector::test_modify_invalid_ticket FAILED [ 15%]
+tests/test_connector_complete.py::TestMockConnector::test_get_symbol_info FAILED [ 15%]
+tests/test_connector_complete.py::TestMockConnector::test_set_price_updates_pnl FAILED [ 16%]
+tests/test_connector_complete.py::TestMockConnector::test_emit_bar_calls_callback FAILED [ 16%]
+tests/test_connector_complete.py::TestMockConnector::test_unsubscribe_stops_callback FAILED [ 16%]
+tests/test_connector_complete.py::TestMockConnector::test_get_order_history FAILED [ 16%]
+tests/test_connector_complete.py::TestMockConnector::test_latency_simulation FAILED [ 17%]
+tests/test_connector_complete.py::TestRateLimiter::test_allows_under_limit FAILED [ 17%]
+tests/test_connector_complete.py::TestRateLimiter::test_throttles_over_limit FAILED [ 17%]
+tests/test_connector_complete.py::TestRateLimiter::test_usage_resets FAILED [ 18%]
+tests/test_connector_complete.py::TestConnectorErrors::test_hierarchy PASSED [ 18%]
+tests/test_connector_complete.py::TestConnectorErrors::test_raise_and_catch PASSED [ 18%]
+tests/test_core.py::TestHMMFeaturesParity::test_hmm_features_basic PASSED [ 19%]
+tests/test_core.py::TestHMMFeaturesParity::test_hmm_features_shape PASSED [ 19%]
+tests/test_core.py::TestHMMFeaturesParity::test_hmm_features_range PASSED [ 19%]
+tests/test_core.py::TestHMMFeaturesParity::test_hmm_features_multiple_slices PASSED [ 19%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_flat_position PASSED [ 20%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_long_position PASSED [ 20%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_short_position PASSED [ 20%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_moderate_intensity PASSED [ 21%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_shape PASSED  [ 21%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_features_all_hmm_states PASSED [ 21%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_onehot_encoding PASSED [ 22%]
+tests/test_core.py::TestRLFeaturesParity::test_rl_position_features PASSED [ 22%]
+tests/test_core.py::TestFeaturesEdgeCases::test_small_dataframe PASSED   [ 22%]
+tests/test_core.py::TestFeaturesEdgeCases::test_zero_volume PASSED       [ 22%]
+tests/test_core.py::TestFeaturesEdgeCases::test_constant_price PASSED    [ 23%]
+tests/test_core.py::TestFeaturesEdgeCases::test_no_time_column PASSED    [ 23%]
+tests/test_core.py::TestFeaturesEdgeCases::test_large_pnl_normalization PASSED [ 23%]
+tests/test_core.py::TestCalcATR::test_atr_basic PASSED                   [ 24%]
+tests/test_core.py::TestCalcATR::test_atr_small_df PASSED                [ 24%]
+tests/test_core.py::TestActions::test_action_from_index_all PASSED       [ 24%]
+tests/test_core.py::TestActions::test_action_from_invalid_index PASSED   [ 25%]
+tests/test_core.py::TestActions::test_get_direction PASSED               [ 25%]
+tests/test_core.py::TestActions::test_get_intensity PASSED               [ 25%]
+tests/test_core.py::TestActions::test_get_action_properties PASSED       [ 25%]
+tests/test_core.py::TestActions::test_action_to_index_roundtrip PASSED   [ 26%]
+tests/test_core.py::TestModels::test_bar_immutable PASSED                [ 26%]
+tests/test_core.py::TestModels::test_signal_properties PASSED            [ 26%]
+tests/test_core.py::TestModels::test_virtual_position_size PASSED        [ 27%]
+tests/test_core.py::TestModels::test_virtual_position_direction_name PASSED [ 27%]
+tests/test_core.py::TestUtils::test_bars_to_dataframe PASSED             [ 27%]
+tests/test_core.py::TestUtils::test_bars_to_dataframe_empty PASSED       [ 27%]
+tests/test_core.py::TestUtils::test_round_lot PASSED                     [ 28%]
+tests/test_core.py::TestUtils::test_pips_to_price PASSED                 [ 28%]
+tests/test_core.py::TestUtils::test_timestamp_roundtrip PASSED           [ 28%]
+tests/test_core_complete.py::TestConstants::test_version_is_string PASSED [ 29%]
+tests/test_core_complete.py::TestConstants::test_direction_values PASSED [ 29%]
+tests/test_core_complete.py::TestConstants::test_timeframe_seconds_completeness PASSED [ 29%]
+tests/test_core_complete.py::TestConstants::test_timeframe_bars_per_year_completeness PASSED [ 30%]
+tests/test_core_complete.py::TestConstants::test_training_lot_sizes PASSED [ 30%]
+tests/test_core_complete.py::TestConstants::test_min_bars_and_warmup PASSED [ 30%]
+tests/test_core_complete.py::TestActions::test_action_enum_has_7_values PASSED [ 30%]
+tests/test_core_complete.py::TestActions::test_actions_map_completeness PASSED [ 31%]
+tests/test_core_complete.py::TestActions::test_action_to_index_inverse PASSED [ 31%]
+tests/test_core_complete.py::TestActions::test_action_from_index[0-WAIT] PASSED [ 31%]
+tests/test_core_complete.py::TestActions::test_action_from_index[1-LONG_WEAK] PASSED [ 32%]
+tests/test_core_complete.py::TestActions::test_action_from_index[4-SHORT_WEAK] PASSED [ 32%]
+tests/test_core_complete.py::TestActions::test_action_from_index[6-SHORT_STRONG] PASSED [ 32%]
+tests/test_core_complete.py::TestActions::test_action_from_index_invalid PASSED [ 33%]
+tests/test_core_complete.py::TestActions::test_get_direction[WAIT-Direction.FLAT] PASSED [ 33%]
+tests/test_core_complete.py::TestActions::test_get_direction[LONG_WEAK-Direction.LONG] PASSED [ 33%]
+tests/test_core_complete.py::TestActions::test_get_direction[LONG_STRONG-Direction.LONG] PASSED [ 33%]
+tests/test_core_complete.py::TestActions::test_get_direction[SHORT_WEAK-Direction.SHORT] PASSED [ 34%]
+tests/test_core_complete.py::TestActions::test_get_direction[SHORT_MODERATE-Direction.SHORT] PASSED [ 34%]
+tests/test_core_complete.py::TestActions::test_get_intensity[WAIT-0] PASSED [ 34%]
+tests/test_core_complete.py::TestActions::test_get_intensity[LONG_WEAK-1] PASSED [ 35%]
+tests/test_core_complete.py::TestActions::test_get_intensity[LONG_MODERATE-2] PASSED [ 35%]
+tests/test_core_complete.py::TestActions::test_get_intensity[LONG_STRONG-3] PASSED [ 35%]
+tests/test_core_complete.py::TestActions::test_get_intensity[SHORT_WEAK-1] PASSED [ 36%]
+tests/test_core_complete.py::TestActions::test_get_intensity[SHORT_STRONG-3] PASSED [ 36%]
+tests/test_core_complete.py::TestActions::test_get_action_properties PASSED [ 36%]
+tests/test_core_complete.py::TestModels::test_bar_frozen PASSED          [ 36%]
+tests/test_core_complete.py::TestModels::test_signal_fields PASSED       [ 37%]
+tests/test_core_complete.py::TestModels::test_account_info PASSED        [ 37%]
+tests/test_core_complete.py::TestModels::test_position_fields PASSED     [ 37%]
+tests/test_core_complete.py::TestModels::test_order_result_success PASSED [ 38%]
+tests/test_core_complete.py::TestModels::test_order_result_failure PASSED [ 38%]
+tests/test_core_complete.py::TestModels::test_virtual_position PASSED    [ 38%]
+tests/test_core_complete.py::TestUtils::test_bars_to_dataframe PASSED    [ 38%]
+tests/test_core_complete.py::TestUtils::test_bars_to_dataframe_empty PASSED [ 39%]
+tests/test_core_complete.py::TestUtils::test_timestamp_roundtrip PASSED  [ 39%]
+tests/test_core_complete.py::TestUtils::test_round_lot[0.025-0.01-0.02] PASSED [ 39%]
+tests/test_core_complete.py::TestUtils::test_round_lot[0.014-0.01-0.01] PASSED [ 40%]
+tests/test_core_complete.py::TestUtils::test_round_lot[0.05-0.01-0.05] PASSED [ 40%]
+tests/test_core_complete.py::TestUtils::test_round_lot[0.0-0.01-0.0] PASSED [ 40%]
+tests/test_core_complete.py::TestUtils::test_round_lot_zero_step PASSED  [ 41%]
+tests/test_core_complete.py::TestUtils::test_pips_to_price_5digit PASSED [ 41%]
+tests/test_core_complete.py::TestUtils::test_pips_to_price_3digit PASSED [ 41%]
+tests/test_core_complete.py::TestFeatures::test_hmm_features_shape PASSED [ 41%]
+tests/test_core_complete.py::TestFeatures::test_hmm_features_no_nan PASSED [ 42%]
+tests/test_core_complete.py::TestFeatures::test_rl_features_shape PASSED [ 42%]
+tests/test_core_complete.py::TestFeatures::test_rl_features_no_nan PASSED [ 42%]
+tests/test_core_complete.py::TestFeatures::test_rl_features_hmm_onehot PASSED [ 43%]
+tests/test_core_complete.py::TestFeatures::test_calc_atr PASSED          [ 43%]
+tests/test_core_complete.py::TestFeatures::test_calc_atr_short_data PASSED [ 43%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_flat_flat_is_noop PASSED [ 44%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_flat_positioned_is_wait_sync PASSED [ 44%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_same_direction_is_noop PASSED [ 44%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_real_long_signal_wait_is_close PASSED [ 44%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_real_short_signal_wait_is_close PASSED [ 45%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_long_vs_short_is_close PASSED [ 45%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_short_vs_long_is_close PASSED [ 45%]
+tests/test_executor_complete.py::TestSyncLogicDecide::test_decision_has_no_open_value PASSED [ 46%]
+tests/test_executor_complete.py::TestSyncState::test_initial_state PASSED [ 46%]
+tests/test_executor_complete.py::TestSyncState::test_wait_sync_enters_waiting PASSED [ 46%]
+tests/test_executor_complete.py::TestSyncState::test_signal_change_while_waiting_opens PASSED [ 47%]
+tests/test_executor_complete.py::TestSyncState::test_same_signal_while_waiting_no_open PASSED [ 47%]
+tests/test_executor_complete.py::TestSyncState::test_waiting_then_wait_signal_no_open PASSED [ 47%]
+tests/test_executor_complete.py::TestSyncState::test_reset PASSED        [ 47%]
+tests/test_executor_complete.py::TestLotMapper::test_map_weak PASSED     [ 48%]
+tests/test_executor_complete.py::TestLotMapper::test_map_moderate PASSED [ 48%]
+tests/test_executor_complete.py::TestLotMapper::test_map_strong PASSED   [ 48%]
+tests/test_executor_complete.py::TestLotMapper::test_map_zero_intensity PASSED [ 49%]
+tests/test_executor_complete.py::TestLotMapper::test_map_unknown_symbol PASSED [ 49%]
+tests/test_executor_complete.py::TestLotMapper::test_get_config PASSED   [ 49%]
+tests/test_executor_complete.py::TestLotMapper::test_get_config_missing PASSED [ 50%]
+tests/test_executor_complete.py::TestLoadSymbolConfigs::test_loads_json PASSED [ 50%]
+tests/test_executor_complete.py::TestLoadSymbolConfigs::test_config_values PASSED [ 50%]
+tests/test_executor_complete.py::TestLoadSymbolConfigs::test_disabled_symbol PASSED [ 50%]
+tests/test_executor_complete.py::TestRiskGuard::test_all_pass_normal PASSED [ 51%]
+tests/test_executor_complete.py::TestRiskGuard::test_drawdown_limit_blocks PASSED [ 51%]
+tests/test_executor_complete.py::TestRiskGuard::test_drawdown_emergency_blocks PASSED [ 51%]
+tests/test_executor_complete.py::TestRiskGuard::test_margin_blocks PASSED [ 52%]
+tests/test_executor_complete.py::TestRiskGuard::test_circuit_breaker_blocks PASSED [ 52%]
+tests/test_executor_complete.py::TestRiskGuard::test_circuit_breaker_resets_on_win PASSED [ 52%]
+tests/test_executor_complete.py::TestRiskGuard::test_reset_circuit_breaker PASSED [ 52%]
+tests/test_executor_complete.py::TestRiskGuard::test_spread_check_blocks PASSED [ 53%]
+tests/test_executor_complete.py::TestRiskGuard::test_spread_check_passes PASSED [ 53%]
+tests/test_executor_complete.py::TestRiskGuard::test_spread_unknown_failopen PASSED [ 53%]
+tests/test_executor_complete.py::TestRiskGuard::test_zero_initial_balance_bypasses_dd PASSED [ 54%]
+tests/test_executor_complete.py::TestCommentBuilder::test_build_format PASSED [ 54%]
+tests/test_executor_complete.py::TestCommentBuilder::test_parse_roundtrip PASSED [ 54%]
+tests/test_executor_complete.py::TestCommentBuilder::test_parse_invalid_empty PASSED [ 55%]
+tests/test_executor_complete.py::TestCommentBuilder::test_parse_invalid_prefix PASSED [ 55%]
+tests/test_executor_complete.py::TestCommentBuilder::test_parse_invalid_short PASSED [ 55%]
+tests/test_executor_complete.py::TestCommentBuilder::test_build_truncates_at_100 PASSED [ 55%]
+tests/test_executor_complete.py::TestExecutor::test_process_signal_no_config FAILED [ 56%]
+tests/test_executor_complete.py::TestExecutor::test_process_signal_disabled_symbol FAILED [ 56%]
+tests/test_executor_complete.py::TestExecutor::test_process_signal_paused FAILED [ 56%]
+tests/test_executor_complete.py::TestExecutor::test_pause_resume FAILED  [ 57%]
+tests/test_executor_complete.py::TestExecutor::test_process_wait_signal_flat FAILED [ 57%]
+tests/test_executor_complete.py::TestExecutor::test_process_signal_wait_sync FAILED [ 57%]
+tests/test_executor_complete.py::TestExecutor::test_close_position FAILED [ 58%]
+tests/test_executor_complete.py::TestExecutor::test_close_position_no_position FAILED [ 58%]
+tests/test_executor_complete.py::TestExecutor::test_close_all FAILED     [ 58%]
+tests/test_executor_complete.py::TestExecutor::test_get_state PASSED     [ 58%]
+tests/test_executor_complete.py::TestExecutor::test_action_to_index PASSED [ 59%]
+tests/test_executor_complete.py::TestExecutor::test_risk_guard_loaded FAILED [ 59%]
+tests/test_integration.py::TestExecutorIntegration::test_full_trade_cycle FAILED [ 59%]
+tests/test_integration.py::TestExecutorIntegration::test_close_on_signal_wait FAILED [ 60%]
+tests/test_integration.py::TestExecutorIntegration::test_risk_guard_blocks_high_dd FAILED [ 60%]
+tests/test_integration.py::TestPaperIntegration::test_multi_trade_sequence PASSED [ 60%]
+tests/test_integration.py::TestPaperIntegration::test_balance_changes_after_trades PASSED [ 61%]
+tests/test_integration.py::TestBufferVirtualPositionIntegration::test_buffer_feeds_feature_calc PASSED [ 61%]
+tests/test_integration.py::TestBufferVirtualPositionIntegration::test_virtual_position_full_cycle PASSED [ 61%]
+tests/test_integration.py::TestSessionLifecycleIntegration::test_full_session_lifecycle FAILED [ 61%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_load_basic_yaml PASSED [ 62%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_env_var_expansion PASSED [ 62%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_env_var_with_default PASSED [ 62%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_env_var_missing_no_default PASSED [ 63%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_empty_yaml PASSED [ 63%]
+tests/test_orchestrator_complete.py::TestLoadConfig::test_nested_config PASSED [ 63%]
+tests/test_orchestrator_complete.py::TestSetupLogging::test_setup_basic PASSED [ 63%]
+tests/test_orchestrator_complete.py::TestSetupLogging::test_setup_with_file PASSED [ 64%]
+tests/test_orchestrator_complete.py::TestSetupLogging::test_setup_empty_config PASSED [ 64%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_healthy_state PASSED [ 64%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_connector_disconnected PASSED [ 65%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_symbol_heartbeat_timeout PASSED [ 65%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_persistence_pending_warning PASSED [ 65%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_memory_in_result PASSED [ 66%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_uptime_in_result PASSED [ 66%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_update_and_check_heartbeat PASSED [ 66%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_reset_symbol PASSED [ 66%]
+tests/test_orchestrator_complete.py::TestHealthMonitor::test_get_memory_fallback PASSED [ 67%]
+tests/test_paper_complete.py::TestPaperAccount::test_initial_state PASSED [ 67%]
+tests/test_paper_complete.py::TestPaperAccount::test_open_position_long PASSED [ 67%]
+tests/test_paper_complete.py::TestPaperAccount::test_open_position_short PASSED [ 68%]
+tests/test_paper_complete.py::TestPaperAccount::test_open_duplicate_fails PASSED [ 68%]
+tests/test_paper_complete.py::TestPaperAccount::test_open_invalid_intensity PASSED [ 68%]
+tests/test_paper_complete.py::TestPaperAccount::test_open_zero_volume_intensity PASSED [ 69%]
+tests/test_paper_complete.py::TestPaperAccount::test_close_position PASSED [ 69%]
+tests/test_paper_complete.py::TestPaperAccount::test_close_nonexistent PASSED [ 69%]
+tests/test_paper_complete.py::TestPaperAccount::test_commission_deducted PASSED [ 69%]
+tests/test_paper_complete.py::TestPaperAccount::test_pnl_calculation_long_profit PASSED [ 70%]
+tests/test_paper_complete.py::TestPaperAccount::test_pnl_calculation_long_loss PASSED [ 70%]
+tests/test_paper_complete.py::TestPaperAccount::test_update_equity PASSED [ 70%]
+tests/test_paper_complete.py::TestPaperAccount::test_commission_total_tracks PASSED [ 71%]
+tests/test_paper_complete.py::TestPaperTrader::test_load_config PASSED   [ 71%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_open PASSED [ 71%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_close PASSED [ 72%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_reverse PASSED [ 72%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_same_noop PASSED [ 72%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_intensity_change PASSED [ 72%]
+tests/test_paper_complete.py::TestPaperTrader::test_process_signal_unknown_symbol PASSED [ 73%]
+tests/test_paper_complete.py::TestPaperTrader::test_get_metrics_empty PASSED [ 73%]
+tests/test_paper_complete.py::TestPaperTrader::test_get_metrics_with_trades PASSED [ 73%]
+tests/test_paper_complete.py::TestPaperTrader::test_get_trades PASSED    [ 74%]
+tests/test_paper_complete.py::TestPaperTrader::test_get_trades_all PASSED [ 74%]
+tests/test_paper_complete.py::TestPaperTrader::test_compare_with_real PASSED [ 74%]
+tests/test_paper_complete.py::TestPaperTrader::test_compare_with_real_empty PASSED [ 75%]
+tests/test_paper_complete.py::TestStats::test_sharpe_empty PASSED        [ 75%]
+tests/test_paper_complete.py::TestStats::test_sharpe_one_trade PASSED    [ 75%]
+tests/test_paper_complete.py::TestStats::test_sharpe_positive PASSED     [ 75%]
+tests/test_paper_complete.py::TestStats::test_sharpe_constant_returns PASSED [ 76%]
+tests/test_paper_complete.py::TestStats::test_max_drawdown_empty PASSED  [ 76%]
+tests/test_paper_complete.py::TestStats::test_max_drawdown_no_loss PASSED [ 76%]
+tests/test_paper_complete.py::TestStats::test_max_drawdown_with_loss PASSED [ 77%]
+tests/test_paper_complete.py::TestStats::test_profit_factor_no_trades PASSED [ 77%]
+tests/test_paper_complete.py::TestStats::test_profit_factor_all_wins PASSED [ 77%]
+tests/test_paper_complete.py::TestStats::test_profit_factor_mixed PASSED [ 77%]
+tests/test_paper_complete.py::TestStats::test_profit_factor_all_losses PASSED [ 78%]
+tests/test_persistence_complete.py::TestSupabaseClient::test_disabled_client FAILED [ 78%]
+tests/test_persistence_complete.py::TestSupabaseClient::test_log_trade_disabled FAILED [ 78%]
+tests/test_persistence_complete.py::TestSupabaseClient::test_log_event_disabled FAILED [ 79%]
+tests/test_persistence_complete.py::TestSupabaseClient::test_pending_count_zero PASSED [ 79%]
+tests/test_persistence_complete.py::TestSupabaseClient::test_retry_pending_empty FAILED [ 79%]
+tests/test_persistence_complete.py::TestSupabaseClientDataPop::test_update_preserves_filter_keys FAILED [ 80%]
+tests/test_persistence_complete.py::TestTradeLogger::test_log_trade FAILED [ 80%]
+tests/test_persistence_complete.py::TestTradeLogger::test_log_paper_trade FAILED [ 80%]
+tests/test_persistence_complete.py::TestSessionManager::test_start_new_session FAILED [ 80%]
+tests/test_persistence_complete.py::TestSessionManager::test_end_session FAILED [ 81%]
+tests/test_persistence_complete.py::TestSessionManager::test_crash_recovery FAILED [ 81%]
+tests/test_persistence_complete.py::TestSessionManager::test_heartbeat PASSED [ 81%]
+tests/test_persistence_complete.py::TestSessionManager::test_check_day_boundary_no_change PASSED [ 82%]
+tests/test_persistence_complete.py::TestSessionManager::test_check_day_boundary_first_call PASSED [ 82%]
+tests/test_persistence_complete.py::TestSessionManager::test_state_file_cleared_on_end FAILED [ 82%]
+tests/test_persistence_complete.py::TestSessionManager::test_end_session_idempotent FAILED [ 83%]
+tests/test_persistence_complete.py::TestLocalStorage::test_save_and_load_pending PASSED [ 83%]
+tests/test_persistence_complete.py::TestLocalStorage::test_save_pending_appends PASSED [ 83%]
+tests/test_persistence_complete.py::TestLocalStorage::test_load_pending_empty PASSED [ 83%]
+tests/test_persistence_complete.py::TestLocalStorage::test_clear_pending PASSED [ 84%]
+tests/test_persistence_complete.py::TestLocalStorage::test_cache_bars PASSED [ 84%]
+tests/test_persistence_complete.py::TestLocalStorage::test_load_cached_bars_missing PASSED [ 84%]
+tests/test_persistence_complete.py::TestLocalStorage::test_cache_dir_created PASSED [ 85%]
+tests/test_preditor.py::TestBarBuffer::test_append_and_len PASSED        [ 85%]
+tests/test_preditor.py::TestBarBuffer::test_fifo_overflow PASSED         [ 85%]
+tests/test_preditor.py::TestBarBuffer::test_is_ready PASSED              [ 86%]
+tests/test_preditor.py::TestBarBuffer::test_to_dataframe_columns PASSED  [ 86%]
+tests/test_preditor.py::TestBarBuffer::test_to_dataframe_empty PASSED    [ 86%]
+tests/test_preditor.py::TestBarBuffer::test_extend PASSED                [ 86%]
+tests/test_preditor.py::TestBarBuffer::test_last_bar PASSED              [ 87%]
+tests/test_preditor.py::TestBarBuffer::test_clear PASSED                 [ 87%]
+tests/test_preditor.py::TestVirtualPositionManager::test_initial_state PASSED [ 87%]
+tests/test_preditor.py::TestVirtualPositionManager::test_open_long PASSED [ 88%]
+tests/test_preditor.py::TestVirtualPositionManager::test_open_short PASSED [ 88%]
+tests/test_preditor.py::TestVirtualPositionManager::test_noop_same_position PASSED [ 88%]
+tests/test_preditor.py::TestVirtualPositionManager::test_close_on_wait PASSED [ 88%]
+tests/test_preditor.py::TestVirtualPositionManager::test_reversal PASSED [ 89%]
+tests/test_preditor.py::TestVirtualPositionManager::test_intensity_change_closes_and_reopens PASSED [ 89%]
+tests/test_preditor.py::TestVirtualPositionManager::test_from_training_config PASSED [ 89%]
+tests/test_preditor.py::TestVirtualPositionManager::test_as_core_virtual_position PASSED [ 90%]
+tests/test_preditor.py::TestVirtualPositionManager::test_total_realized_pnl_accumulates PASSED [ 90%]
+tests/test_preditor.py::TestVirtualPositionManager::test_size_property PASSED [ 90%]
+tests/test_preditor.py::TestModelLoaderValidation::test_validate_metadata_valid PASSED [ 91%]
+tests/test_preditor.py::TestModelLoaderValidation::test_validate_metadata_missing_field PASSED [ 91%]
+tests/test_preditor.py::TestModelLoaderValidation::test_load_metadata_only_valid_zip PASSED [ 91%]
+tests/test_preditor.py::TestModelLoaderValidation::test_load_metadata_only_no_comment PASSED [ 91%]
+tests/test_preditor.py::TestModelLoaderValidation::test_load_metadata_only_nonexistent PASSED [ 92%]
+tests/test_preditor.py::TestModelLoaderValidation::test_load_nonexistent_zip PASSED [ 92%]
+tests/test_preditor.py::TestPreditorStructure::test_initial_state PASSED [ 92%]
+tests/test_preditor.py::TestPreditorStructure::test_process_bar_unknown_symbol PASSED [ 93%]
+tests/test_preditor.py::TestPreditorStructure::test_get_virtual_position_unknown PASSED [ 93%]
+tests/test_preditor_complete.py::TestBarBuffer::test_empty_buffer PASSED [ 93%]
+tests/test_preditor_complete.py::TestBarBuffer::test_append PASSED       [ 94%]
+tests/test_preditor_complete.py::TestBarBuffer::test_fifo_eviction PASSED [ 94%]
+tests/test_preditor_complete.py::TestBarBuffer::test_extend PASSED       [ 94%]
+tests/test_preditor_complete.py::TestBarBuffer::test_to_dataframe PASSED [ 94%]
+tests/test_preditor_complete.py::TestBarBuffer::test_to_dataframe_empty PASSED [ 95%]
+tests/test_preditor_complete.py::TestBarBuffer::test_clear PASSED        [ 95%]
+tests/test_preditor_complete.py::TestBarBuffer::test_repr PASSED         [ 95%]
+tests/test_preditor_complete.py::TestBarBuffer::test_is_ready_at_maxlen PASSED [ 96%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_initial_state PASSED [ 96%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_open_long PASSED [ 96%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_open_short PASSED [ 97%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_close_on_wait PASSED [ 97%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_same_action_noop PASSED [ 97%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_reverse_position PASSED [ 97%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_intensity_change_closes_and_reopens PASSED [ 98%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_commission_applied_on_open PASSED [ 98%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_floating_pnl_updates PASSED [ 98%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_total_realized_pnl_accumulates PASSED [ 99%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_as_core_virtual_position PASSED [ 99%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_lot_sizes_from_config PASSED [ 99%]
+tests/test_preditor_complete.py::TestVirtualPosition::test_spread_and_slippage_on_entry PASSED [100%]
+
+================================== FAILURES ===================================
+_______ TestAuditS1_DataPopFix.test_filter_keys_preserved_after_execute _______
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_connect_disconnect __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_get_account ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_get_history_random __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________ TestMockConnector.test_get_history_loaded_bars ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ TestMockConnector.test_open_order ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_open_creates_position _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_close_order ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________ TestMockConnector.test_close_nonexistent_ticket _______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_modify_order _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_get_position_none ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_set_price_updates_pnl _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________________ TestMockConnector.test_emit_bar _______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_unsubscribe ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestMockConnector.test_get_symbol_info ____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+____________________ TestMockConnector.test_order_history _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestBarDetector.test_register_unregister ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestBarDetector.test_first_tick_no_bar ____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestBarDetector.test_same_period_no_bar ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestBarDetector.test_period_change_emits_bar _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestBarDetector.test_multiple_bars ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ TestBarDetector.test_unregistered_symbol_ignored _______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ TestBarDetector.test_pending_bar _______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestRateLimiter.test_basic_acquire ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________ TestRateLimiter.test_multiple_acquires_under_limit ______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestRateLimiter.test_current_usage ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_connect_disconnect __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_get_history_random __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_get_history_loaded __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_get_account ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ TestMockConnector.test_open_order ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_open_and_get_position _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_close_order ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestMockConnector.test_close_invalid_ticket _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestMockConnector.test_get_positions_empty __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_get_positions_multiple ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestMockConnector.test_modify_order _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_modify_invalid_ticket _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestMockConnector.test_get_symbol_info ____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestMockConnector.test_set_price_updates_pnl _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________ TestMockConnector.test_emit_bar_calls_callback ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ TestMockConnector.test_unsubscribe_stops_callback ______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_get_order_history ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestMockConnector.test_latency_simulation __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestRateLimiter.test_allows_under_limit ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestRateLimiter.test_throttles_over_limit __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ TestRateLimiter.test_usage_resets ______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestExecutor.test_process_signal_no_config __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ TestExecutor.test_process_signal_disabled_symbol _______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestExecutor.test_process_signal_paused ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________________ TestExecutor.test_pause_resume ________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestExecutor.test_process_wait_signal_flat __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestExecutor.test_process_signal_wait_sync __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________________ TestExecutor.test_close_position _______________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestExecutor.test_close_position_no_position _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________________ TestExecutor.test_close_all _________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestExecutor.test_risk_guard_loaded _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+________________ TestExecutorIntegration.test_full_trade_cycle ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ TestExecutorIntegration.test_close_on_signal_wait ______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________ TestExecutorIntegration.test_risk_guard_blocks_high_dd ____________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________ TestSessionLifecycleIntegration.test_full_session_lifecycle _________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestSupabaseClient.test_disabled_client ___________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestSupabaseClient.test_log_trade_disabled __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestSupabaseClient.test_log_event_disabled __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________________ TestSupabaseClient.test_retry_pending_empty _________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_________ TestSupabaseClientDataPop.test_update_preserves_filter_keys _________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________________ TestTradeLogger.test_log_trade ________________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+____________________ TestTradeLogger.test_log_paper_trade _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+__________________ TestSessionManager.test_start_new_session __________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_____________________ TestSessionManager.test_end_session _____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+___________________ TestSessionManager.test_crash_recovery ____________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+______________ TestSessionManager.test_state_file_cleared_on_end ______________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+_______________ TestSessionManager.test_end_session_idempotent ________________
+async def functions are not natively supported.
+You need to install a suitable plugin for your async framework, for example:
+  - anyio
+  - pytest-asyncio
+  - pytest-tornasync
+  - pytest-trio
+  - pytest-twisted
+============================== warnings summary ===============================
+..\Users\ceruc\miniconda3\lib\site-packages\_pytest\config\__init__.py:1428
+  C:\Users\ceruc\miniconda3\lib\site-packages\_pytest\config\__init__.py:1428: PytestConfigWarning: Unknown config option: asyncio_mode
+  
+    self._warn_or_fail_if_strict(f"Unknown config option: {key}\n")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_audit_regression.py::TestAuditS1_DataPopFix::test_filter_keys_preserved_after_execute
+FAILED tests/test_connector.py::TestMockConnector::test_connect_disconnect - ...
+FAILED tests/test_connector.py::TestMockConnector::test_get_account - Failed:...
+FAILED tests/test_connector.py::TestMockConnector::test_get_history_random - ...
+FAILED tests/test_connector.py::TestMockConnector::test_get_history_loaded_bars
+FAILED tests/test_connector.py::TestMockConnector::test_open_order - Failed: ...
+FAILED tests/test_connector.py::TestMockConnector::test_open_creates_position
+FAILED tests/test_connector.py::TestMockConnector::test_close_order - Failed:...
+FAILED tests/test_connector.py::TestMockConnector::test_close_nonexistent_ticket
+FAILED tests/test_connector.py::TestMockConnector::test_modify_order - Failed...
+FAILED tests/test_connector.py::TestMockConnector::test_get_position_none - F...
+FAILED tests/test_connector.py::TestMockConnector::test_set_price_updates_pnl
+FAILED tests/test_connector.py::TestMockConnector::test_emit_bar - Failed: as...
+FAILED tests/test_connector.py::TestMockConnector::test_unsubscribe - Failed:...
+FAILED tests/test_connector.py::TestMockConnector::test_get_symbol_info - Fai...
+FAILED tests/test_connector.py::TestMockConnector::test_order_history - Faile...
+FAILED tests/test_connector.py::TestBarDetector::test_register_unregister - F...
+FAILED tests/test_connector.py::TestBarDetector::test_first_tick_no_bar - Fai...
+FAILED tests/test_connector.py::TestBarDetector::test_same_period_no_bar - Fa...
+FAILED tests/test_connector.py::TestBarDetector::test_period_change_emits_bar
+FAILED tests/test_connector.py::TestBarDetector::test_multiple_bars - Failed:...
+FAILED tests/test_connector.py::TestBarDetector::test_unregistered_symbol_ignored
+FAILED tests/test_connector.py::TestBarDetector::test_pending_bar - Failed: a...
+FAILED tests/test_connector.py::TestRateLimiter::test_basic_acquire - Failed:...
+FAILED tests/test_connector.py::TestRateLimiter::test_multiple_acquires_under_limit
+FAILED tests/test_connector.py::TestRateLimiter::test_current_usage - Failed:...
+FAILED tests/test_connector_complete.py::TestMockConnector::test_connect_disconnect
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_history_random
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_history_loaded
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_account
+FAILED tests/test_connector_complete.py::TestMockConnector::test_open_order
+FAILED tests/test_connector_complete.py::TestMockConnector::test_open_and_get_position
+FAILED tests/test_connector_complete.py::TestMockConnector::test_close_order
+FAILED tests/test_connector_complete.py::TestMockConnector::test_close_invalid_ticket
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_positions_empty
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_positions_multiple
+FAILED tests/test_connector_complete.py::TestMockConnector::test_modify_order
+FAILED tests/test_connector_complete.py::TestMockConnector::test_modify_invalid_ticket
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_symbol_info
+FAILED tests/test_connector_complete.py::TestMockConnector::test_set_price_updates_pnl
+FAILED tests/test_connector_complete.py::TestMockConnector::test_emit_bar_calls_callback
+FAILED tests/test_connector_complete.py::TestMockConnector::test_unsubscribe_stops_callback
+FAILED tests/test_connector_complete.py::TestMockConnector::test_get_order_history
+FAILED tests/test_connector_complete.py::TestMockConnector::test_latency_simulation
+FAILED tests/test_connector_complete.py::TestRateLimiter::test_allows_under_limit
+FAILED tests/test_connector_complete.py::TestRateLimiter::test_throttles_over_limit
+FAILED tests/test_connector_complete.py::TestRateLimiter::test_usage_resets
+FAILED tests/test_executor_complete.py::TestExecutor::test_process_signal_no_config
+FAILED tests/test_executor_complete.py::TestExecutor::test_process_signal_disabled_symbol
+FAILED tests/test_executor_complete.py::TestExecutor::test_process_signal_paused
+FAILED tests/test_executor_complete.py::TestExecutor::test_pause_resume - Fai...
+FAILED tests/test_executor_complete.py::TestExecutor::test_process_wait_signal_flat
+FAILED tests/test_executor_complete.py::TestExecutor::test_process_signal_wait_sync
+FAILED tests/test_executor_complete.py::TestExecutor::test_close_position - F...
+FAILED tests/test_executor_complete.py::TestExecutor::test_close_position_no_position
+FAILED tests/test_executor_complete.py::TestExecutor::test_close_all - Failed...
+FAILED tests/test_executor_complete.py::TestExecutor::test_risk_guard_loaded
+FAILED tests/test_integration.py::TestExecutorIntegration::test_full_trade_cycle
+FAILED tests/test_integration.py::TestExecutorIntegration::test_close_on_signal_wait
+FAILED tests/test_integration.py::TestExecutorIntegration::test_risk_guard_blocks_high_dd
+FAILED tests/test_integration.py::TestSessionLifecycleIntegration::test_full_session_lifecycle
+FAILED tests/test_persistence_complete.py::TestSupabaseClient::test_disabled_client
+FAILED tests/test_persistence_complete.py::TestSupabaseClient::test_log_trade_disabled
+FAILED tests/test_persistence_complete.py::TestSupabaseClient::test_log_event_disabled
+FAILED tests/test_persistence_complete.py::TestSupabaseClient::test_retry_pending_empty
+FAILED tests/test_persistence_complete.py::TestSupabaseClientDataPop::test_update_preserves_filter_keys
+FAILED tests/test_persistence_complete.py::TestTradeLogger::test_log_trade - ...
+FAILED tests/test_persistence_complete.py::TestTradeLogger::test_log_paper_trade
+FAILED tests/test_persistence_complete.py::TestSessionManager::test_start_new_session
+FAILED tests/test_persistence_complete.py::TestSessionManager::test_end_session
+FAILED tests/test_persistence_complete.py::TestSessionManager::test_crash_recovery
+FAILED tests/test_persistence_complete.py::TestSessionManager::test_state_file_cleared_on_end
+FAILED tests/test_persistence_complete.py::TestSessionManager::test_end_session_idempotent
+================== 73 failed, 263 passed, 1 warning in 2.78s ==================

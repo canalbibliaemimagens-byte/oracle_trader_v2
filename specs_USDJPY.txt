@@ -1,0 +1,36 @@
+
+============================================================
+ESPECIFICAÇÕES TÉCNICAS: USDJPY
+============================================================
+
+--- IDENTIFICAÇÃO ---
+Symbol ID                      | 4                        
+Digits                         | 3                        
+Point Size                     | 0.001                    
+Pip Position                   | 2                        
+
+--- VOLUMES (Raw Units) ---
+Min Volume                     | 100000                   
+Step Volume                    | 100000                   
+Max Volume                     | 1000000000               
+Lot Size (Raw)                 | 10000000                 
+
+--- VALUS DO PONTO (Estimado) ---
+1 Lot (Units)                  | 100,000                  
+Value per Point (1 Lot)        | 100.00000 (Quote Ccy)    
+
+--- LOTES (Calculado / 10M) ---
+Min Lot                        | 0.01                     
+Step Lot                       | 0.01                     
+
+--- CUSTOS & SWAPS ---
+Commission                     | 300                      
+Comm. Type                     | USD_PER_LOT              
+Min Commission                 | 0                        
+Swap Long                      | 1.5                      
+Swap Short                     | -3.22                    
+Swap 3-Days                    | WEDNESDAY                
+
+--- AGENDAMENTO ---
+Timezone                       | America/New_York         
+============================================================

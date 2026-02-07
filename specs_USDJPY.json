@@ -1,0 +1,111 @@
+{
+    "symbolId": "4",
+    "digits": 3,
+    "pipPosition": 2,
+    "enableShortSelling": true,
+    "guaranteedStopLoss": false,
+    "swapRollover3Days": "WEDNESDAY",
+    "swapLong": 1.5,
+    "swapShort": -3.22,
+    "maxVolume": "1000000000",
+    "minVolume": "100000",
+    "stepVolume": "100000",
+    "maxExposure": "10000000000000",
+    "schedule": [
+        {
+            "startSecond": 61260,
+            "endSecond": 147540
+        },
+        {
+            "startSecond": 147660,
+            "endSecond": 233940
+        },
+        {
+            "startSecond": 234060,
+            "endSecond": 320340
+        },
+        {
+            "startSecond": 320460,
+            "endSecond": 406740
+        },
+        {
+            "startSecond": 406860,
+            "endSecond": 492900
+        }
+    ],
+    "commission": "300",
+    "commissionType": "USD_PER_LOT",
+    "slDistance": 0,
+    "tpDistance": 0,
+    "gslDistance": 0,
+    "gslCharge": "0",
+    "distanceSetIn": "SYMBOL_DISTANCE_IN_POINTS",
+    "minCommission": "0",
+    "minCommissionType": "CURRENCY",
+    "minCommissionAsset": "USD",
+    "rolloverCommission": "0",
+    "skipRolloverDays": 3,
+    "scheduleTimeZone": "America/New_York",
+    "tradingMode": "ENABLED",
+    "rolloverCommission3Days": "WEDNESDAY",
+    "swapCalculationType": "PIPS",
+    "lotSize": "10000000",
+    "preciseTradingCommissionRate": "300000000",
+    "preciseMinCommission": "0",
+    "holiday": [
+        {
+            "holidayId": "4004",
+            "name": "25.12.2025 - Closed",
+            "description": "25.12.2025 - Closed",
+            "scheduleTimeZone": "Europe/Bucharest",
+            "holidayDate": "20447",
+            "isRecurring": false,
+            "startSecond": 0,
+            "endSecond": 0
+        },
+        {
+            "holidayId": "4005",
+            "name": "01.01.2026 - Closed",
+            "description": "01.01.2026 - Closed",
+            "scheduleTimeZone": "Europe/Bucharest",
+            "holidayDate": "20454",
+            "isRecurring": false,
+            "startSecond": 0,
+            "endSecond": 0
+        },
+        {
+            "holidayId": "4041",
+            "name": "24.12.2025 - EC 21:55",
+            "description": "24.12.2025 - EC 21:55",
+            "scheduleTimeZone": "Europe/Bucharest",
+            "holidayDate": "20446",
+            "isRecurring": false,
+            "startSecond": 78900,
+            "endSecond": 86399
+        },
+        {
+            "holidayId": "4010",
+            "name": "31.12.2025 - EC 21:55",
+            "description": "31.12.2025 - EC 21:55",
+            "scheduleTimeZone": "Europe/Bucharest",
+            "holidayDate": "20453",
+            "isRecurring": false,
+            "startSecond": 78900,
+            "endSecond": 86399
+        }
+    ],
+    "pnlConversionFeeRate": 0,
+    "leverageId": "51407",
+    "swapPeriod": 24,
+    "swapTime": 1320,
+    "skipSWAPPeriods": 0,
+    "chargeSwapAtWeekends": false,
+    "_calculated": {
+        "min_lot_v2": 0.01,
+        "step_lot_v2": 0.01,
+        "raw_min_volume": 100000.0,
+        "point_size": 0.001,
+        "lot_units": 100000.0,
+        "value_per_point_quote_ccy": 100.0
+    }
+}

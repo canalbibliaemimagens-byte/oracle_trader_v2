@@ -1,0 +1,32 @@
+
+============================================================
+ESPECIFICAÇÕES TÉCNICAS: EURUSD
+============================================================
+
+--- IDENTIFICAÇÃO ---
+Symbol ID                      | 1                        
+Digits                         | 5                        
+Pip Position                   | 4                        
+Trading Mode                   | 0                        
+
+--- VOLUMES (Raw Units) ---
+Min Volume                     | 100000                   
+Step Volume                    | 100000                   
+Max Volume                     | 1000000000               
+Max Exposure                   | 10000000000000           
+
+--- LOTES (Calculado / 10M) ---
+Min Lot                        | 0.01                     
+Step Lot                       | 0.01                     
+
+--- CUSTOS & SWAPS ---
+Commission                     | 300                      
+Comm. Type                     | USD_PER_LOT              
+Min Commission                 | 0                        
+Swap Long                      | -0.77                    
+Swap Short                     | 0.31                     
+Swap 3-Days                    | WEDNESDAY                
+
+--- AGENDAMENTO ---
+Timezone                       | America/New_York         
+============================================================

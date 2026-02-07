@@ -101,7 +101,7 @@ oracle_v2/
 │   ├── preditor.py                 # Classe principal
 │   ├── model_loader.py             # Carrega ZIP, extrai metadata
 │   ├── virtual_position.py         # Posição virtual (idêntica ao TradingEnv)
-│   ├── signal.py                   # Dataclass Signal
+│   ├── buffer.py                   # Buffer FIFO de barras (janela deslizante)
 │   └── warmup.py                   # Fast-forward warmup
 │
 ├── 📁 executor/                    # Execução de Ordens
@@ -109,29 +109,33 @@ oracle_v2/
 │   ├── executor.py                 # Classe principal
 │   ├── sync_logic.py               # Critérios de sincronização
 │   ├── lot_mapper.py               # Intensidade → Lote real
+│   ├── risk_guard.py               # Proteção de risco (DD, margem, spread, circuit breaker)
+│   ├── price_converter.py          # ⚠️ Conversão SL/TP USD → preço absoluto
 │   └── comment_builder.py          # Monta comentário estruturado
 │
 ├── 📁 paper/                       # Trading Simulado
 │   ├── __init__.py
 │   ├── paper_trader.py             # Simula execução (TradingEnv)
-│   └── drift_analyzer.py           # Compara Paper vs Real
+│   ├── account.py                  # Conta simulada (PaperAccount, PaperTrade)
+│   └── stats.py                    # Métricas: Sharpe, Max Drawdown, etc.
 │
 ├── 📁 orchestrator/                # Coordenação
 │   ├── __init__.py
 │   ├── orchestrator.py             # Classe principal
-│   ├── ipc.py                      # WebSocket local entre módulos
+│   ├── lifecycle.py                # Bootstrap, shutdown, config loading, Twisted bridge setup
+│   ├── cli.py                      # Entry point de linha de comando
 │   └── health.py                   # Monitoramento de saúde
 │
 ├── 📁 persistence/                 # Persistência
 │   ├── __init__.py
 │   ├── supabase_client.py          # Cliente Supabase
 │   ├── trade_logger.py             # Log de trades
+│   ├── local_storage.py            # Cache local e backup offline
 │   └── session_manager.py          # Gestão de sessão
 │
-├── 📁 api/                         # API Externa (Dashboard)
-│   ├── __init__.py
-│   ├── websocket_server.py         # WS para dashboard
-│   └── commands.py                 # Handlers de comandos
+│   # NOTA: Módulo api/ foi removido do projeto.
+│   # Será implementado como serviço externo (Oracle Hub / API Gateway).
+│   # Ver: docs/notas/ARCH_PROPOSAL_API_GATEWAY.md
 │
 ├── 📁 config/                      # Configurações
 │   ├── default.yaml                # Config padrão
@@ -183,7 +187,6 @@ oracle_v2/
 | `paper/` | Simula execução para benchmark | `core/`, `preditor/` |
 | `orchestrator/` | Coordena módulos, gerencia ciclo de vida | Todos |
 | `persistence/` | Supabase, logs, sessões | `core/` |
-| `api/` | WebSocket para dashboard externo | `orchestrator/` |
 | `config/` | Arquivos de configuração | - |
 | `models/` | Modelos treinados (.zip) | - |
 | `scripts/` | Utilitários de linha de comando | Variável |
@@ -677,9 +680,9 @@ EURUSD_M15.zip
 | `lib/features.py` | `core/features.py` | Manter (já está correto) |
 | `lib/models.py` | `core/models.py` | Simplificar |
 | `lib/trading.py` (MT5) | `connector/ctrader/` | Reescrever |
-| `lib/websocket_server.py` | `api/websocket_server.py` | Mover |
+| `lib/websocket_server.py` | ~~`api/`~~ → Futuro: Oracle Hub (serviço externo) | Postergado |
 | `lib/websocket_client.py` | Remover (era para WS público) | Avaliar necessidade |
-| `lib/ws_commands.py` | `api/commands.py` | Mover |
+| `lib/ws_commands.py` | ~~`api/`~~ → Futuro: Oracle Hub (serviço externo) | Postergado |
 | `lib/supabase_logger.py` | `persistence/supabase_client.py` | Refatorar |
 | `lib/session_manager.py` | `persistence/session_manager.py` | Mover |
 | `lib/metrics.py` | `persistence/trade_logger.py` | Mover |
@@ -728,9 +731,10 @@ Fase 3: Executor
 
 Fase 4: Integração
   1. orchestrator/orchestrator.py
-  2. orchestrator/ipc.py
-  3. persistence/* (migrar de v1)
-  4. api/* (migrar de v1)
+  2. orchestrator/lifecycle.py
+  3. orchestrator/cli.py
+  4. persistence/* (migrar de v1)
+  # NOTA: api/ removido — será serviço externo (Oracle Hub)
 
 Fase 5: Paper + Testes
   1. paper/paper_trader.py
