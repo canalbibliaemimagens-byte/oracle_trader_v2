@@ -47,7 +47,7 @@ logging:
 
 # Hub (OTS Hub) - Telemetria Live
 hub:
-  enabled: false
-  url: "ws://localhost:8000/ws/bot-v2"
-  token: "${OTS_HUB_TOKEN}"
+  enabled: true
+  url: "ws://163.176.175.219:8000/ws/bot-v2"
+  token: "OTS_HUB_TOKEN_0702226"
   instance_id: "bot-v2"

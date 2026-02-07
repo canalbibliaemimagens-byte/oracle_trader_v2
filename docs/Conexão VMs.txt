@@ -1,2 +1,3 @@
 ssh -i ~/.ssh/oracle_new ubuntu@163.176.175.219
 ssh -i ~/.ssh/oracle_new ubuntu@163.176.208.248
+watch -n 10 'tail -3 ~/vm_arm_ideal.log; echo "---"; tail -3 ~/vm_arm_fallback.log'
