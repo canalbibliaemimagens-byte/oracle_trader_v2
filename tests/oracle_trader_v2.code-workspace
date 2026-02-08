@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../ots_hub"
+		},
+		{
+			"path": "../../ots_dashboard"
+		}
+	],
+	"settings": {}
+}

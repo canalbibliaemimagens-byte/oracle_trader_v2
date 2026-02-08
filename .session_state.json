@@ -1,0 +1,12 @@
+{
+  "session_id": "5da52385",
+  "start_time": "2026-02-08T02:39:50.841556+00:00",
+  "initial_balance": 10000,
+  "symbols": [
+    "BTCUSD",
+    "EURUSD"
+  ],
+  "status": "RUNNING",
+  "last_heartbeat": "2026-02-08T03:10:14.207448+00:00",
+  "current_balance": 10000.0
+}

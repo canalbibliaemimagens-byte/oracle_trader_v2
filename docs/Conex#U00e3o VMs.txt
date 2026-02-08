@@ -1,0 +1,106 @@
+ssh -i ~/.ssh/oracle_new ubuntu@163.176.175.219 - ots_hub
+ssh -i ~/.ssh/oracle_new ubuntu@163.176.208.248 - wm
+watch -n 10 'tail -3 ~/vm_arm_ideal.log; echo "---"; tail -3 ~/vm_arm_fallback.log'
+
+
+
+cd oracle_trader_v2/
+source venv/bin/activate
+pgrep -af "orchestrator"
+pkill -f "python -m orchestrator"
+sleep 10
+git pull
+sleep 5
+nohup python -m orchestrator > oracle.log 2>&1 &
+tail -f ~/oracle_trader_v2/oracle.log
+
+sudo systemctl daemon-reload
+sudo systemctl enable ots-hub
+sudo systemctl start ots-hub
+
+sudo systemctl stop cloudflare-tunnel
+sudo systemctl restart cloudflare-tunnel
+sudo journalctl -u cloudflare-tunnel -f
+
+
+
+
+cd C:\ots_dashboard
+git checkout --orphan fresh-start
+git add .
+git commit -m "Fresh start - clean slate"
+git branch -D main
+git branch -m main
+git remote remove origin
+git remote add origin https://github.com/canalbibliaemimagens-byte/ots_dash.git
+git push -f origin main
+Write-Host "✅ ots_dashboard OK" -ForegroundColor Green
+
+
+# 2. Limpar oracle_trader_v2 (fresh start completo)
+cd C:\oracle_trader_v2
+git checkout --orphan fresh-start
+git add .
+git commit -m "Fresh start - clean slate"
+git branch -D main
+git branch -m main
+git remote remove origin
+git remote add origin https://github.com/canalbibliaemimagens-byte/oracle_trader_v2.git
+git push -f origin main
+Write-Host "✅ oracle_trader_v2 OK" -ForegroundColor Green
+
+# 3. Limpar ots_hub (fresh start completo)
+cd C:\ots_hub
+git checkout --orphan fresh-start
+git add .
+git commit -m "Fresh start - clean slate"
+git branch -D main
+git branch -m main
+git remote remove origin
+git remote add origin https://github.com/canalbibliaemimagens-byte/ots_hub.git
+git push -f origin main
+Write-Host "✅ ots_hub OK" -ForegroundColor Green
+
+Write-Host "`n🎉 TODOS OS 3 REPOSITÓRIOS LIMPOS E SINCRONIZADOS!" -ForegroundColor Cyan
+
+
+
+# 1. Sincronizar ots_hub
+cp ~/ots_hub/.env ~/ots_hub_env_backup 2>/dev/null || true
+cd ~/ots_hub
+git fetch origin
+git reset --hard origin/main
+git clean -fd
+cp ~/ots_hub_env_backup .env 2>/dev/null || true
+rm ~/ots_hub_env_backup 2>/dev/null || true
+chmod +x /home/ubuntu/ots_hub/scripts/cloudflare_tunnel.sh
+sudo systemctl daemon-reload
+sudo systemctl enable ots-hub
+sudo systemctl start ots-hub
+sudo systemctl stop cloudflare-tunnel
+sudo systemctl restart cloudflare-tunnel
+sudo journalctl -u cloudflare-tunnel -f
+echo "✅ ots_hub sincronizado"
+
+# 2. Sincronizar oracle_trader_v2
+# Parar orchestrator
+pkill -f "python -m orchestrator"
+sleep 2
+
+# Sincronizar
+cd ~/oracle_trader_v2
+git fetch origin
+git reset --hard origin/main
+git clean -fd
+
+# Configurar branch tracking
+git branch -M main
+git branch --set-upstream-to=origin/main main
+
+# Ativar venv e reiniciar
+source venv/bin/activate
+nohup python -m orchestrator > oracle.log 2>&1 &
+echo "✅ Orchestrator reiniciado"
+
+# Ver logs
+tail -f oracle.log

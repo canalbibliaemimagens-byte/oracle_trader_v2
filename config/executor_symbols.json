@@ -1,0 +1,28 @@
+{
+    "_comment": "Configuração de execução por símbolo - Oracle v2.0",
+    "_version": "2.0",
+    "_risk": {
+        "dd_limit_pct": 5.0,
+        "dd_emergency_pct": 10.0,
+        "initial_balance": 10000,
+        "max_consecutive_losses": 5
+    },
+    "EURUSD": {
+        "enabled": true,
+        "lot_weak": 0.01,
+        "lot_moderate": 0.03,
+        "lot_strong": 0.05,
+        "sl_usd": 10.0,
+        "tp_usd": 0,
+        "max_spread_pips": 2.0
+    },
+    "_default": {
+        "enabled": false,
+        "lot_weak": 0.01,
+        "lot_moderate": 0.03,
+        "lot_strong": 0.05,
+        "sl_usd": 10.0,
+        "tp_usd": 0,
+        "max_spread_pips": 3.0
+    }
+}

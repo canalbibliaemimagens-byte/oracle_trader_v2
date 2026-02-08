@@ -1,0 +1,53 @@
+# Oracle Trader v2.0 - Configuração Principal
+version: "2.0"
+
+# Broker
+broker:
+  type: "ctrader"              # mock | ctrader
+  client_id: "${CTRADER_CLIENT_ID}"
+  client_secret: "${CTRADER_CLIENT_SECRET}"
+  access_token: "${CTRADER_ACCESS_TOKEN}"
+  account_id: "${CTRADER_ACCOUNT_ID}"
+  environment: "demo"       # demo | live
+
+# Trading
+timeframe: "M15"
+initial_balance: 10000
+close_on_exit: false
+close_on_day_change: false
+
+# Preditor
+preditor:
+  models_dir: "./models"
+  warmup_bars: 1000
+  min_bars: 350
+  buffer_size: 350
+
+# Executor
+executor:
+  config_file: "./config/executor_symbols.json"
+  default_sl_usd: 10.0
+  default_tp_usd: 0
+  sync_mode: "lazy"
+
+# Paper
+paper:
+  enabled: true
+
+# Persistence
+persistence:
+  enabled: false
+supabase_url: "${SUPABASE_URL}"
+supabase_key: "${SUPABASE_KEY}"
+
+# Logging
+logging:
+  level: "INFO"
+  log_file: "./logs/oracle.log"
+
+# Hub (OTS Hub) - Telemetria Live
+hub:
+  enabled: true
+  url: "ws://163.176.175.219:8000/ws/bot-v2"
+  token: "OTS_HUB_TOKEN_0702226"
+  instance_id: "bot-v2"
